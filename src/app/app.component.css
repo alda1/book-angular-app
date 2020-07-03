@@ -1,0 +1,18 @@
+.header-list {
+    display: flex;
+    flex-direction: initial;
+    justify-content: space-evenly;
+    background: lightblue;
+}
+
+.header-list a {
+    padding: 1rem;
+    color: #5a87ff;
+    text-transform: uppercase;
+}
+
+.header-list a:hover {
+    background-color:#5a87ff;
+    color: black;
+    text-decoration: none;
+}

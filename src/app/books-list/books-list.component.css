@@ -1,0 +1,12 @@
+.actions-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-button {
+    margin-bottom: 10px;
+}
+
+.book-list-container {
+    margin-top: 50px;
+}

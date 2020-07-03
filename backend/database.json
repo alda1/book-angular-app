@@ -1,0 +1,36 @@
+{
+  "booktracking": [
+    {
+      "title": "test",
+      "description": "test",
+      "author": "test",
+      "category": "Klasik",
+      "date": "2020-07-16",
+      "id": 2
+    },
+    {
+      "title": "rw",
+      "description": "",
+      "author": "",
+      "category": "",
+      "date": "",
+      "id": 3
+    },
+    {
+      "title": "rr",
+      "description": "",
+      "author": "",
+      "category": "Klasik",
+      "date": "",
+      "id": 4
+    }
+  ],
+  "reportingtracking": [
+    {
+      "title": "rewrew",
+      "description": "",
+      "type": "Table",
+      "id": 2
+    }
+  ]
+}

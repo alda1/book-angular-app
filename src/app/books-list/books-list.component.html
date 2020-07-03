@@ -1,0 +1,45 @@
+<div class="container wrapper book-list-container">
+    <div class="row">
+
+        <!-- Issue table -->
+        <div class="col-md-12">
+            <div class="inner">
+                <h3><a [routerLink]="['/']" >Lista e librave</a>
+                 <a class="float-right" [routerLink]="['book/add']">
+                    <button type="button" class="btn btn-primary">Shto nje liber</button>
+                  </a>
+                </h3>
+                <table id="books-list" class="table display"  style="width:100%">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" name="websitecheck" (click) = "checkuncheckall()"> Selektoji te gjitha</th>
+                            <th>#</th>
+                            <th>Titulli</th>
+                            <th>Pershkrimi</th>
+                            <th>Autori</th>
+                            <th>Kategoria</th>    
+                            <th>Data e botimit</th>
+                            <th>Veprimet</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let books of BooksList">
+                            <td><input type="checkbox" name="websitecheck" [checked]="isChecked" value=""></td>
+                            <th scope="row">{{books.id}}</th>
+                            <td>{{books.title}}</td>
+                            <td>{{books.description}}</td>
+                            <td>{{books.author}}</td>
+                            <td>{{books.category}}</td>
+                            <td>{{books.date}}</td>
+                            <td class="actions-buttons">
+                                <button type="button" class="btn btn-success btn-sm move-right edit-button" [routerLink]="['book/edit/', books.id]">Modifiko</button>
+                                <button type="button" class="btn btn-danger btn-sm" (click)="deleteBook(books)">Fshi</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

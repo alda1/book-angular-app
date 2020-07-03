@@ -1,0 +1,39 @@
+<div class="container wrapper reporting-list-container">
+    <div class="row">
+
+        <!-- Issue table -->
+        <div class="col-md-12">
+            <div class="inner">
+                <h3><a [routerLink]="['/reporting']" >Lista e raporteve</a>
+                 <a class="float-right" [routerLink]="['add']">
+                    <button type="button" class="btn btn-primary">Shto nje raport</button>
+                  </a>
+                </h3>
+                <table id="reporting-list" class="table"  style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Emri</th>
+                            <th>Pershkrimi</th>
+                            <th>Tipi</th>
+                            <th>Veprimet</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let reportings of ReportingList">
+                            <th scope="row">{{reportings.id}}</th>
+                            <td>{{reportings.title}}</td>
+                            <td>{{reportings.description}}</td>
+                            <td>{{reportings.type}}</td>
+                            <td class="actions-buttons">
+                                <button type="button" class="btn btn-success btn-sm move-right edit-button" [routerLink]="['edit/', reportings.id]">Modifiko</button>
+                                <button type="button" class="btn btn-danger btn-sm" (click)="deleteReporting(reportings)">Fshi</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
