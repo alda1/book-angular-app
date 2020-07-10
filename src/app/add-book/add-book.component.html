@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <label>Kategoria</label><br/>
                     <select formControlName="category" [ngClass]="{ 'is-invalid': submitted && f.category.errors }">
-                        <option></option>
+                        <option>Zgjidh kategorine</option>
                         <option *ngFor="let category of bookCategories">{{category}}</option>
                       </select>
                       <div *ngIf="submitted && f.category.errors" class="invalid-feedback">

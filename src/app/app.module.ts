@@ -12,8 +12,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddReportingComponent } from './add-reporting/add-reporting.component';
 import { EditReportingComponent } from './edit-reporting/edit-reporting.component';
 import { ReportingListComponent } from './reporting-list/reporting-list.component';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from "@angular/material/table";
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,15 @@ import { ReportingListComponent } from './reporting-list/reporting-list.componen
     DataTablesModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatDialogModule
     
   ],
   providers: [],

@@ -1,7 +1,7 @@
 
 import { Component, OnInit, NgZone } from '@angular/core';
 import { ReportingService } from '../reporting.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class AddReportingComponent implements OnInit {
   reportingForm: FormGroup;
   reportingTypes: any = ['Chart', 'Table']
+  submitted = false;
 
   ngOnInit() {
     this.addReporting()
@@ -26,13 +27,27 @@ export class AddReportingComponent implements OnInit {
 
   addReporting() {
     this.reportingForm = this.fb.group({
-    title: [''],
+    title: ['', Validators.required],
     description: [''],
-    type: [''],
+    type: ['', Validators.required],
     })
   }
 
+
+    // convenience getter for easy access to form fields
+    get f() { 
+      return this.reportingForm.controls;
+    }
+
   submitForm() {
+
+    this.submitted = true;
+
+    // stop here if form is invalid
+     if (this.reportingForm.invalid) {
+         return;
+     }
+
     this.reportingService.createReporting(this.reportingForm.value).subscribe(res => {
       console.log('Reporting added!')
       this.ngZone.run(() => this.router.navigateByUrl('/reporting'))

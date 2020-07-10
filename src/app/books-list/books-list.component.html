@@ -1,45 +1,133 @@
 <div class="container wrapper book-list-container">
     <div class="row">
-
+    
         <!-- Issue table -->
         <div class="col-md-12">
+          <div>
+            <a class="float-right" [routerLink]="['book/add']">
+              <button type="button" class="btn btn-primary">Shto nje liber</button>
+            </a>
+            <button class="btn btn-danger float-right"  (click)="removeSelectedRows()">
+              Fshi librat e selektuar
+            </button>
+            <!-- <button type="button" class="btn btn-success float-right"  (click)="changeCategory()"  data-toggle="modal" data-target="#myModal">
+              Ndrysho kategori
+            </button> -->
+          </div>
+        
             <div class="inner">
-                <h3><a [routerLink]="['/']" >Lista e librave</a>
-                 <a class="float-right" [routerLink]="['book/add']">
-                    <button type="button" class="btn btn-primary">Shto nje liber</button>
-                  </a>
-                </h3>
-                <table id="books-list" class="table display"  style="width:100%">
-                    <thead>
-                        <tr>
-                            <th><input type="checkbox" name="websitecheck" (click) = "checkuncheckall()"> Selektoji te gjitha</th>
-                            <th>#</th>
-                            <th>Titulli</th>
-                            <th>Pershkrimi</th>
-                            <th>Autori</th>
-                            <th>Kategoria</th>    
-                            <th>Data e botimit</th>
-                            <th>Veprimet</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let books of BooksList">
-                            <td><input type="checkbox" name="websitecheck" [checked]="isChecked" value=""></td>
-                            <th scope="row">{{books.id}}</th>
-                            <td>{{books.title}}</td>
-                            <td>{{books.description}}</td>
-                            <td>{{books.author}}</td>
-                            <td>{{books.category}}</td>
-                            <td>{{books.date}}</td>
-                            <td class="actions-buttons">
-                                <button type="button" class="btn btn-success btn-sm move-right edit-button" [routerLink]="['book/edit/', books.id]">Modifiko</button>
-                                <button type="button" class="btn btn-danger btn-sm" (click)="deleteBook(books)">Fshi</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h3><a [routerLink]="['/']" >Lista e librave</a></h3>
+            
+                <!-- <div class="container">
+                  <div class="modal" id="myModal"  #content>
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                      
+                        <div class="modal-header">
+                          <h4 class="modal-title">Lista a kategorive</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        
+                        <div class="modal-body">
+                          <div class="form-group">
+                            <label>Kategoria</label><br/>
+                            <select formControlName="category">
+                                <option>Zgjidh kategorine</option>
+                                <option *ngFor="let category of bookCategories">{{category}}</option>
+                              </select>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+
+                <div class="mat-elevation-z8">
+                  <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+                  </mat-form-field>
+                  
+                  <table mat-table [dataSource]="dataSource" matSort> <!--[dataSource]="dataSource" matSort-->
+                  
+                      <!-- Checkbox Column -->
+                      <ng-container matColumnDef="select">
+                        <mat-header-cell *matHeaderCellDef>
+                          <mat-checkbox (change)="$event ? masterToggle() : null"
+                                        [checked]="selection.hasValue() && isAllSelected()"
+                                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+                          </mat-checkbox>
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                          <mat-checkbox (click)="$event.stopPropagation()"
+                                        (change)="$event ? selection.toggle(row) : null"
+                                        [checked]="selection.isSelected(row)">
+                          </mat-checkbox>
+                        </mat-cell>
+                      </ng-container>
+
+                      <!-- Id Column -->
+                      <ng-container matColumnDef="id">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> # </th>
+                      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                      </ng-container>
+                    
+                      <!-- Title Column -->
+                      <ng-container matColumnDef="title">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Titulli </th>
+                        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                      </ng-container>
+                    
+                      <!-- Description Column -->
+                      <ng-container matColumnDef="description">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Pershkrimi </th>
+                        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                      </ng-container>
+                    
+                      <!-- Author Column -->
+                      <ng-container matColumnDef="author">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Autori </th>
+                        <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+                      </ng-container>
+                                  
+                      <!-- Category Column -->
+                      <ng-container matColumnDef="category">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Kategoria </th>
+                          <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+                      </ng-container>
+
+                      <!-- Date Column -->
+                      <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef> Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                      </ng-container>
+                  
+                        <!-- Actions Column -->
+                      <ng-container matColumnDef="action">
+                          <th mat-header-cell *matHeaderCellDef> Veprimet </th>
+                          <td mat-cell *matCellDef="let element" class="action-link"> 
+                          <button type="button" class="btn btn-success btn-sm move-right edit-button"[routerLink]="['book/edit/', element.id]">Modifiko</button>
+                          <button type="button" class="btn btn-danger btn-sm" (click)="deleteBook(element)">Fshi</button>
+                          <!-- <a [routerLink]="['book/edit/', element.id]">Edit</a> | 
+                          <a (click)="deleteBook(element)" class="delete-button">Delete</a>   -->
+                          </td>
+                      </ng-container>
+                      
+                      <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
+
+                  </table>
+
+                  <ng-container *ngIf="dataSource.data.length === 0">
+                      <p>No books found</p>
+                  </ng-container>
+
+                  <mat-paginator
+                    [pageSizeOptions]="[10, 20, 30]"
+                    showFirstLastButtons>
+                  </mat-paginator>
+                </div>
             </div>
         </div>
-
     </div>
 </div>

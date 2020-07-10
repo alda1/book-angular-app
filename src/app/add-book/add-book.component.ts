@@ -36,12 +36,10 @@ export class AddBookComponent implements OnInit {
     })
   }
 
-
     // convenience getter for easy access to form fields
     get f() { 
       return this.bookForm.controls;
      }
-
 
   submitForm() {
 
@@ -57,7 +55,6 @@ export class AddBookComponent implements OnInit {
       this.ngZone.run(() => this.router.navigateByUrl('/'))
     });
   }
-
 }
 
 

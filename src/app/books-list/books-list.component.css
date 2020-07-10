@@ -3,10 +3,19 @@
     flex-direction: column;
 }
 
-.edit-button {
+/* .edit-button {
     margin-bottom: 10px;
-}
+} */
 
 .book-list-container {
     margin-top: 50px;
+}
+
+table {
+    width: 100%;
+  }
+
+.delete-button:hover {
+    color: #007bff;
+    cursor: pointer;
 }

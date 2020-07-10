@@ -1,91 +1,33 @@
 {
   "booktracking": [
     {
-      "title": "test",
-      "description": "test",
-      "author": "test",
+      "title": "Zemra e vajzes",
+      "description": "Novel e bukur",
+      "author": "Jody Piccold",
       "category": "Klasik",
-      "date": "2020-07-16",
+      "date": "2020-06-30",
+      "id": 1
+    },
+    {
+      "title": "Pelegrini i vonuar",
+      "description": "Interesant",
+      "author": "Migjeni",
+      "category": "Roman",
+      "date": "1955-10-30",
       "id": 2
-    },
-    {
-      "title": "rw",
-      "description": "",
-      "author": "",
-      "category": "",
-      "date": "",
-      "id": 3
-    },
-    {
-      "title": "rr",
-      "description": "",
-      "author": "",
-      "category": "Klasik",
-      "date": "",
-      "id": 4
-    },
-    {
-      "title": "ewqe",
-      "description": "",
-      "author": "",
-      "category": "",
-      "date": "",
-      "id": 5
-    },
-    {
-      "title": "",
-      "description": "",
-      "author": "",
-      "category": "",
-      "date": "",
-      "id": 6
-    },
-    {
-      "title": "",
-      "description": "",
-      "author": "",
-      "category": "",
-      "date": "",
-      "id": 7
-    },
-    {
-      "title": "test",
-      "description": "",
-      "author": "",
-      "category": "",
-      "date": "",
-      "id": 8
-    },
-    {
-      "title": "dsadas",
-      "description": "",
-      "author": "",
-      "category": "",
-      "date": "",
-      "id": 9
-    },
-    {
-      "title": "ewqe",
-      "description": "",
-      "author": "",
-      "category": "",
-      "date": "",
-      "id": 10
-    },
-    {
-      "title": "ewq",
-      "description": "",
-      "author": "",
-      "category": "",
-      "date": "",
-      "id": 11
     }
   ],
   "reportingtracking": [
     {
-      "title": "rewrew",
+      "title": "raport 1",
       "description": "",
-      "type": "Table",
+      "type": "Chart",
+      "id": 1
+    },
+    {
+      "title": "raport 2",
+      "description": "",
+      "type": "Chart",
       "id": 2
     }
   ]

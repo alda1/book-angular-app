@@ -28,7 +28,7 @@ export class EditReportingComponent implements OnInit {
     var id = this.actRoute.snapshot.paramMap.get('id');
     this.ReportingService.getReporting(id).subscribe((data) => {
       this.updateReportingForm = this.fb.group({
-        title: [data.title],
+        title: [data.title, Validators.required],
         description: [data.description],
         type: [data.type]
 
@@ -44,13 +44,19 @@ export class EditReportingComponent implements OnInit {
     })    
   }
 
-  /* Handle form errors in Angular 8 */
-  public errorHandling = (control: string, error: string) => {
-    return this.updateReportingForm.controls[control].hasError(error);
+  // convenience getter for easy access to form fields
+  get f() { 
+    return this.updateReportingForm.controls;
   }
 
   submitForm(){ 
     this. submitted = true;
+
+    console.log(this.updateReportingForm.invalid);
+     // stop here if form is invalid
+      if (this.updateReportingForm.invalid) {
+          return;
+      }
 
     var id = this.actRoute.snapshot.paramMap.get('id');
     this.ReportingService.updateReporting(id, this.updateReportingForm.value).subscribe(res => {
