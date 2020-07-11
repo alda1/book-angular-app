@@ -3,8 +3,8 @@
     {
       "title": "Zemra e vajzes",
       "description": "Novel e bukur",
-      "author": "Jody Piccold",
-      "category": "Klasik",
+      "author": "Jody Piccoldss",
+      "category": "Roman",
       "date": "2020-06-30",
       "id": 1
     },
@@ -20,7 +20,7 @@
   "reportingtracking": [
     {
       "title": "raport 1",
-      "description": "",
+      "description": "eeeeeeeeee",
       "type": "Chart",
       "id": 1
     },
@@ -29,6 +29,12 @@
       "description": "",
       "type": "Chart",
       "id": 2
+    },
+    {
+      "title": "rerew",
+      "description": "rwerwe",
+      "type": "Table",
+      "id": 3
     }
   ]
 }

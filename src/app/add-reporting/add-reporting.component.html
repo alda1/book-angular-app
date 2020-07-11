@@ -21,15 +21,27 @@
               
                 <div class="form-group">
                     <label>Tipi</label><br/>
-                    <select formControlName="type" [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
-                        <option>Zgjidh tipin</option>
-                        <option *ngFor="let type of reportingTypes">{{type}}</option>
+                    <select formControlName="type"  [(ngModel)]="reportingType" [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+                        <!-- <option>Zgjidh tipin</option> -->
+                        <option value="{{type}}" *ngFor="let type of reportingTypes">{{type}}</option>
                       </select>
                       <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
                         <div *ngIf="f.type.errors.required">Type is required</div>
                     </div>
                 </div>
 
+                <div class="row" id="informationDiv" *ngIf="reportingType == 'Table'">
+                    <!-- <div class="col-md-6 form-group"> -->
+                      <table class="col-md-6" id="availableFields">
+                        <thead>
+                            <label>Fushat e disponueshme</label>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let field of availableFields">{{field}}</tr>
+                        </tbody>
+                    </table>
+                    <!-- </div> -->
+                </div>
                 <br/>
                 <button type="submit" class="btn btn-primary">Shto</button>
             </form>

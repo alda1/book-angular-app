@@ -28,6 +28,7 @@ export class EditBookComponent implements OnInit {
   ) { 
     var id = this.actRoute.snapshot.paramMap.get('id');
     this.bookService.getBook(id).subscribe((data) => {
+      console.log(data);
       this.updateBookForm = this.fb.group({
         title: [data.title, Validators.required],
         description: [data.description],
@@ -59,13 +60,14 @@ export class EditBookComponent implements OnInit {
 
 console.log('submit form');
     this.submitted = true;
-    console.log(this.updateBookForm.invalid);
-     // stop here if form is invalid
-      if (this.updateBookForm.invalid) {
-          return;
-      }
+
+    // stop here if form is invalid
+    if (this.updateBookForm.invalid) {
+        return;
+    }
 
     var id = this.actRoute.snapshot.paramMap.get('id');
+    console.log(this.updateBookForm.value);
     this.bookService.updateBook(id, this.updateBookForm.value).subscribe(res => {
       this.ngZone.run(() => this.router.navigateByUrl('/'))
     })

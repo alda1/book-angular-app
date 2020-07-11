@@ -13,12 +13,15 @@ import {SelectionModel} from '@angular/cdk/collections';
 })
 export class BooksListComponent implements OnInit {
 
-  BooksList: any = [];
   tableColumns  :  string[] = ['select', 'id', 'title', 'description', 'author', 'category', 'date', 'action'];
   // dataSource:any  = [];
   dataSource = new MatTableDataSource([]);
   selection = new SelectionModel(true, []);
-  bookCategories: any = ['Informatik', 'Biografi', 'Klasik', 'Roman'];
+  bookCategoriesModal: any = ['Informatik', 'Biografi', 'Klasik', 'Roman'];
+  modalIsOpen = false;
+  selectedCategory: string = '';
+  data;
+  finalSelectedCategory;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort, {}) sort: MatSort;
@@ -101,22 +104,43 @@ export class BooksListComponent implements OnInit {
       this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
-  // changeCategory() {
-  //   this.selection.selected.forEach(item => {
-  //     console.log(item);
-  //  });
-   
-  // }
+   openModal(open : boolean) {
+    // this.modalIsOpen = open;
+    this.selection.selected.forEach(item => {
+      this.modalIsOpen = open;
+      console.log(item);
+   });
 
-  // public open() {
-  //   if(!true){
-  //     // Dont open the modal
-  //   } else {
-  //      // Open the modal
-  //      this.content.open();
-  //   }
+}
 
-  // }
+  selectChangeHandler (event: any) {
+    this.selectedCategory = event.target.value;
+    return this.selectedCategory;
+  }
+
+  btnOKClick(open) {
+
+    this.selection.selected.forEach(item => {
+      console.log(item);
+      console.log(this.selectedCategory);
+      console.log(this.selectedCategory.substring(3))
+      this.finalSelectedCategory = this.selectedCategory.substring(3);
+      item.category = this.finalSelectedCategory;
+
+      if(item.category != '') {
+
+        this.bookService.updateBook(item.id, item).subscribe(res => {
+          this.dataSource.paginator = this.paginator;
+          this.modalIsOpen = open;
+          this.selection = new SelectionModel(true, []);
+
+        });
+      }
+      else {
+        console.log('You have to select a category!');
+      }
+   });
+  }
 
 }
 

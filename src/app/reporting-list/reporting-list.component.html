@@ -48,7 +48,7 @@
                 <!-- Description Column -->
                 <ng-container matColumnDef="title">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Emri </th>
-                  <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                  <td mat-cell *matCellDef="let element" [routerLink]="['detail/', element.id]" style="cursor: pointer;"> {{element.title}} </td>
                 </ng-container>
               
                 <!-- Author Column -->
@@ -67,7 +67,7 @@
                 <ng-container matColumnDef="action">
                     <th mat-header-cell *matHeaderCellDef> Veprimet </th>
                     <td mat-cell *matCellDef="let element" class="action-link"> 
-                    <button type="button" class="btn btn-success btn-sm move-right edit-button"[routerLink]="['edit/', element.id]">Modifiko</button>
+                    <button type="button" class="btn btn-success btn-sm move-right edit-button" [routerLink]="['edit/', element.id]">Modifiko</button>
                     <button type="button" class="btn btn-danger btn-sm" (click)="deleteReporting(element)">Fshi</button>
                     <!-- <a [routerLink]="['book/edit/', element.id]">Edit</a> | 
                     <a (click)="deleteBook(element)" class="delete-button">Delete</a>   -->

@@ -6,6 +6,7 @@ import { BooksListComponent } from './books-list/books-list.component';
 import { AddReportingComponent } from './add-reporting/add-reporting.component';
 import { EditReportingComponent } from './edit-reporting/edit-reporting.component';
 import { ReportingListComponent } from './reporting-list/reporting-list.component';
+import { ReportingDetailComponent } from './reporting-detail/reporting-detail.component';
 
 const routes: Routes = [
 
@@ -40,7 +41,11 @@ const routes: Routes = [
     component: EditReportingComponent,
     data: { title: 'Edit reporting' }
   },
-
+  {
+    path: 'reporting/detail/:id',
+    component: ReportingDetailComponent,
+    data: { title: 'Detail of the reporting' }
+  },
 ];
 
 @NgModule({

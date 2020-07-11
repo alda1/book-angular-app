@@ -13,6 +13,8 @@ export class AddReportingComponent implements OnInit {
   reportingForm: FormGroup;
   reportingTypes: any = ['Chart', 'Table']
   submitted = false;
+  reportingType:string = "";
+  availableFields: any = ['Titulli', 'Pershkrimi', 'Autori', 'Kategoria', 'Data e publikimit'];
 
   ngOnInit() {
     this.addReporting()
