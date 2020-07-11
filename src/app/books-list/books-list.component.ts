@@ -80,12 +80,10 @@ export class BooksListComponent implements OnInit {
   }
 
   removeSelectedRows() {
-     this.selection.selected.forEach(item => {
+      this.selection.selected.forEach(item => {
       if(confirm('Jeni te sigurt per fshirjen e librit me titull "'+item.title+'" ?')) {
         let index: number = this.dataSource.data.findIndex(d => d === item);
-        console.log(this.dataSource.data.findIndex(d => d === item));
         this.dataSource.data.splice(index,1);
-        console.log(item.id);
         
         this.bookService.deleteBook(item.id).subscribe(res => {
           // this.dataSource.data.splice(index, 1);
@@ -95,6 +93,7 @@ export class BooksListComponent implements OnInit {
       }
     });
     this.selection = new SelectionModel(true, []);
+    this.dataSource.sort = this.sort;
   }
 
   /** Selects all rows if they are not all selected; otherwise clear selection. */
@@ -105,10 +104,8 @@ export class BooksListComponent implements OnInit {
   }
 
    openModal(open : boolean) {
-    // this.modalIsOpen = open;
     this.selection.selected.forEach(item => {
       this.modalIsOpen = open;
-      console.log(item);
    });
 
 }
@@ -121,19 +118,16 @@ export class BooksListComponent implements OnInit {
   btnOKClick(open) {
 
     this.selection.selected.forEach(item => {
-      console.log(item);
-      console.log(this.selectedCategory);
-      console.log(this.selectedCategory.substring(3))
+      // console.log(item);
+      // console.log(this.selectedCategory);
       this.finalSelectedCategory = this.selectedCategory.substring(3);
       item.category = this.finalSelectedCategory;
-
       if(item.category != '') {
-
         this.bookService.updateBook(item.id, item).subscribe(res => {
           this.dataSource.paginator = this.paginator;
           this.modalIsOpen = open;
           this.selection = new SelectionModel(true, []);
-
+          this.dataSource.sort = this.sort;
         });
       }
       else {

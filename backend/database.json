@@ -4,7 +4,7 @@
       "title": "Zemra e vajzes",
       "description": "Novel e bukur",
       "author": "Jody Piccoldss",
-      "category": "Roman",
+      "category": "Informatik",
       "date": "2020-06-30",
       "id": 1
     },
@@ -12,9 +12,81 @@
       "title": "Pelegrini i vonuar",
       "description": "Interesant",
       "author": "Migjeni",
-      "category": "Roman",
+      "category": "Klasik",
       "date": "1955-10-30",
       "id": 2
+    },
+    {
+      "title": "iliada",
+      "description": "",
+      "author": "homeri",
+      "category": "Roman",
+      "date": "2020-07-07",
+      "id": 3
+    },
+    {
+      "title": "1",
+      "description": "",
+      "author": "1",
+      "category": "Informatik",
+      "date": "",
+      "id": 4
+    },
+    {
+      "title": "2",
+      "description": "",
+      "author": "2",
+      "category": "Informatik",
+      "date": "",
+      "id": 5
+    },
+    {
+      "title": "test",
+      "description": "",
+      "author": "4",
+      "category": "Informatik",
+      "date": "",
+      "id": 7
+    },
+    {
+      "title": "4",
+      "description": "",
+      "author": "4",
+      "category": "Biografi",
+      "date": "",
+      "id": 8
+    },
+    {
+      "title": "5",
+      "description": "",
+      "author": "5",
+      "category": "Klasik",
+      "date": "",
+      "id": 9
+    },
+    {
+      "title": "6",
+      "description": "",
+      "author": "6",
+      "category": "Roman",
+      "date": "",
+      "id": 10
+    },
+    {
+      "title": "7",
+      "description": "",
+      "author": "7",
+      "category": "Roman",
+      "date": "",
+      "id": 11
+    },
+    {
+      "title": "8",
+      "description": "",
+      "author": "8",
+      "category": "Roman",
+      "date": "",
+      "id": 12
     }
   ],
   "reportingtracking": [
