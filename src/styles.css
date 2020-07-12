@@ -6,3 +6,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 td.mat-cell {
     word-break: break-word;
 }
+
+.adjustEmptyContent {
+    text-align: center;
+    padding: 18px;
+}

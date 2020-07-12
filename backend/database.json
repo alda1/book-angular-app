@@ -1,72 +1,42 @@
 {
   "booktracking": [
     {
-      "title": "Zemra e vajzes",
-      "description": "Novel e bukur",
-      "author": "Jody Piccoldss",
+      "title": "Becomming",
+      "description": "Nje pershkrim shume interesant mbi jeten e ish-zonjes se pare te SHBA",
+      "author": "Michelle Obama",
       "category": "Klasik",
-      "date": "2020-06-30",
+      "date": "2017-10-30",
       "id": 1
     },
     {
-      "title": "Pelegrini i vonuar",
-      "description": "Interesant",
-      "author": "Migjeni",
+      "title": "Jeta ime jo aq e persosur",
+      "description": "Liber 'lemonade' Liber 'lemonade' ",
+      "author": "Chris ",
       "category": "Klasik",
-      "date": "1955-10-30",
+      "date": "",
       "id": 2
     },
     {
-      "title": "iliada",
-      "description": "",
-      "author": "homeri",
+      "title": "Zemra e vajzes",
+      "description": "Roman psikologjik",
+      "author": "Joddy Piccoult",
       "category": "Klasik",
-      "date": "2020-07-07",
+      "date": "",
       "id": 3
-    },
-    {
-      "title": "2w2",
-      "description": "",
-      "author": "222",
-      "category": "Klasik",
-      "date": "",
-      "id": 4
-    },
-    {
-      "title": "wq",
-      "description": "",
-      "author": "qw",
-      "category": "Biografi",
-      "date": "",
-      "id": 5
-    },
-    {
-      "title": "Gjuha C",
-      "description": "",
-      "author": "Unknown",
-      "category": "Informatik",
-      "date": "",
-      "id": 6
     }
   ],
   "reportingtracking": [
     {
-      "title": "rerew",
-      "description": "rwerwe",
+      "title": "Raport chart",
+      "description": "",
+      "type": "Chart",
+      "id": 1
+    },
+    {
+      "title": "Report table",
+      "description": "",
       "type": "Table",
-      "id": 3
-    },
-    {
-      "title": "test report",
-      "description": "test report description",
-      "type": "Chart",
-      "id": 4
-    },
-    {
-      "title": "eeew",
-      "description": "rewr",
-      "type": "Chart",
-      "id": 5
+      "id": 2
     }
   ]
 }
