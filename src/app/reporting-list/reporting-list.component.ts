@@ -16,7 +16,7 @@ export class ReportingListComponent implements OnInit {
 
   tableColumns  :  string[] = ['select', 'id', 'title', 'description', 'type', 'action'];
   // dataSource:any  = [];
-  dataSource = new MatTableDataSource([]);
+  dataSource:any = new MatTableDataSource([]);
   selection = new SelectionModel(true, []);
   bookCategories: any = ['Informatik', 'Biografi', 'Klasik', 'Roman'];
 

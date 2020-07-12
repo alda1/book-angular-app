@@ -21,6 +21,8 @@ import { MatInputModule } from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReportingDetailComponent } from './reporting-detail/reporting-detail.component';
+import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { ReportingDetailComponent } from './reporting-detail/reporting-detail.co
     MatSortModule,
     MatTableModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    ChartsModule
     
   ],
   providers: [],

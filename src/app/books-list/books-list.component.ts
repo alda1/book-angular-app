@@ -15,7 +15,7 @@ export class BooksListComponent implements OnInit {
 
   tableColumns  :  string[] = ['select', 'id', 'title', 'description', 'author', 'category', 'date', 'action'];
   // dataSource:any  = [];
-  dataSource = new MatTableDataSource([]);
+  dataSource:any = new MatTableDataSource([]);
   selection = new SelectionModel(true, []);
   bookCategoriesModal: any = ['Informatik', 'Biografi', 'Klasik', 'Roman'];
   modalIsOpen = false;
@@ -23,6 +23,7 @@ export class BooksListComponent implements OnInit {
   data;
   finalSelectedCategory;
 
+  
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort, {}) sort: MatSort;
   @ViewChild('content') content: any;
@@ -35,7 +36,7 @@ export class BooksListComponent implements OnInit {
    // Books list
    loadBooks() {
     this.bookService.getBooks().subscribe((data: {}) => {
-     // this.BooksList = data;
+    //  this.BooksList = data;
      console.log(data);
      this.dataSource.data  = data;
      this.dataSource.paginator = this.paginator;
@@ -104,11 +105,10 @@ export class BooksListComponent implements OnInit {
   }
 
    openModal(open : boolean) {
-    this.selection.selected.forEach(item => {
-      this.modalIsOpen = open;
-   });
-
-}
+      this.selection.selected.forEach(item => {
+        this.modalIsOpen = open;
+    });
+  }
 
   selectChangeHandler (event: any) {
     this.selectedCategory = event.target.value;

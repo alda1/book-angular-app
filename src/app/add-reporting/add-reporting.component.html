@@ -31,17 +31,26 @@
                 </div>
 
                 <div class="row" id="informationDiv" *ngIf="reportingType == 'Table'">
-                    <!-- <div class="col-md-6 form-group"> -->
                       <table class="col-md-6" id="availableFields">
                         <thead>
                             <label>Fushat e disponueshme</label>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let field of availableFields">{{field}}</tr>
+                            <tr *ngFor="let field of availableFields">{{field}}
+                            <button class="btn btn-default" type="button" (click)="addRow()">Add</button>
+                            </tr>
                         </tbody>
                     </table>
-                    <!-- </div> -->
                 </div>
+                <div class="row" id="informationDiv" *ngIf="reportingType == 'Table'">
+                    <table class="col-md-6" id="availableFields">
+                      <thead>
+                          <label>Fushat e selektuara</label>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                  </table>
+              </div>
                 <br/>
                 <button type="submit" class="btn btn-primary">Shto</button>
             </form>
